@@ -1,0 +1,30 @@
+{% extends './layout.html' %}
+
+{%block tittle%}Crear nota{%endblock%}
+
+{%block css%}
+   
+{%endblock%}
+
+
+{%block body%}
+<div class="container d-flex flex-column align-items-center p-5 w-50">
+    <div class="content w-100 border border-1 rounded p-5">
+        <h1 class="mb-4" >Crear nota</h1>
+        <form action="/createNote" method="POST" >
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" name="tituloNota" id="floatingInput" placeholder="Titulo Nota">
+                <label for="floatingInput">Titulo Nota</label>
+            </div>
+            <div class="form-floating">
+                <textarea class="form-control" name="contenidoNota" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                <label for="floatingTextarea2">Contenido de nota</label>
+            </div>
+            <div class="d-grid gap-2 col-6 mt-5 w-100">
+                <button class="btn btn-primary" type="submit">Guardar nota</button>
+              </div>
+        </form>
+    </div>
+
+</div>
+{%endblock%}

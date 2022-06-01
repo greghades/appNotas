@@ -1,0 +1,29 @@
+{% extends './layout.html' %}
+
+{%block tittle%}Crear nota{%endblock%}
+
+{%block css%}
+   
+{%endblock%}
+
+
+{%block body%}
+<div class="container d-flex flex-column align-items-center p-5 w-50">
+    <div class="content w-100 border border-1 rounded p-5">
+        <h1 class="mb-4" >Actualizar nota</h1>
+        <form action="/update/{{id}}" method="POST" >
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" value="{{campos[0]}}" name="tituloNota" id="floatingInput" >
+            </div>
+            <div class="form-floating">
+                <textarea class="form-control" name="contenidoNota" id="floatingTextarea2" style="height: 100px">{{campos[1]}}</textarea>
+               
+            </div>
+            <div class="d-grid gap-2 col-6 mt-5 w-100">
+                <button class="btn btn-primary" type="submit">Guardar nota</button>
+              </div>
+        </form>
+    </div>
+
+</div>
+{%endblock%}

@@ -1,0 +1,56 @@
+{% extends './layout.html'%}
+
+{%block tittle%}Home page{%endblock%}
+
+{%block css%}
+
+
+   <style>
+       *{
+           margin: 0;
+           padding: 0;
+       }
+       body{
+           box-sizing: border-box;
+       }
+       .btn-logout{
+            position: absolute;
+            right: 100px;
+            margin: 12px 0;
+       }
+    
+   </style>
+{%endblock%}
+
+{%block body%}
+<div class="container">
+    <div class="btn-logout">
+        <a href="{{url_for('createNote')}} " class="btn btn-primary ">Crear Nota</a>
+        <a href="{{url_for('logout')}} " class="btn btn-danger ">Cerrar Sesion</a>
+    </div>
+    
+    <h1>Bienvenido {{nombre}}</h1>
+    <h2>Tus notas</h2>
+    <br>
+    <div class="row w-75 m-auto justify-content-center">
+    {%if campos%}
+        {%for nota in campos%}
+            <div class="card text-start col-md-5  m-3">
+                <div class="card-body ">
+                <h5 class="card-title">{{nota[1]}}</h5>
+                <p class="card-text">{{nota[2]}}</p>
+                <a href="{{url_for('update',idnota=nota[0])}}" class="btn btn-primary ">Editar</a>
+                <a href="{{url_for('delete',idnota=nota[0])}}" class="btn btn-danger ">Eliminar</a>
+                </div>
+            </div>
+        {%endfor%}
+    {%else%}
+        <a href="{{url_for('createNote')}} " class="btn btn-primary w-50">Crear primera Nota</a>
+        
+    {%endif%}
+    </div>
+</div>
+    
+     
+
+{%endblock%}
